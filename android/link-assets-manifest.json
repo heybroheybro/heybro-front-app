@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/NotoSansKR-Bold.otf",
+      "sha1": "49e50de244558c4c21f43d85b7404cabb970b30b"
+    },
+    {
+      "path": "src/assets/fonts/NotoSansKR-Regular.otf",
+      "sha1": "5f533d0d5caf3847afa2d78301e7b87b3485ecbc"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Bold.ttf",
+      "sha1": "013f1bbcbbd80991a5f00fca52a90d0d7ab8b81f"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Regular.ttf",
+      "sha1": "84d102488738b0ebbc7a5087973effbd54c95bd5"
+    }
+  ]
+}
