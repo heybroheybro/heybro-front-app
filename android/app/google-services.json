@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "857398994786",
+    "project_id": "heybro-1f31f",
+    "storage_bucket": "heybro-1f31f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857398994786:android:8791df83b160afd8c92e3b",
+        "android_client_info": {
+          "package_name": "com.heybro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857398994786-q8kt4ed9amkdok87q4jaent7hlkeiknm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.heybro",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "857398994786-j98hmkpuoctob3rkqqjqt3ogonkfkigd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmJTFABgEXv7zPFonJX7oY--YB8SU85qI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857398994786-j98hmkpuoctob3rkqqjqt3ogonkfkigd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "857398994786-ob26ijtso07r6nhu8n7e9fu28tb8p8mf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.heybro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
