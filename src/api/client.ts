@@ -1,10 +1,11 @@
 import axios from 'axios'
 import axiosInherit from 'axios-inherit'
 import * as AxiosLogger from 'axios-logger'
+import Config from 'react-native-config'
 
 axiosInherit(axios)
 
-axios.defaults.baseURL = 'http://backend.eba-mu9rwp2a.ap-northeast-2.elasticbeanstalk.com'
+axios.defaults.baseURL = Config.SERVICE_BASE_URL
 axios.interceptors.request.use(AxiosLogger.requestLogger)
 axios.interceptors.response.use(AxiosLogger.responseLogger)
 
