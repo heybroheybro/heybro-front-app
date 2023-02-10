@@ -1,4 +1,4 @@
-package com.heybroapp.newarchitecture.components;
+package com.heybro.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

@@ -1,4 +1,4 @@
-package com.heybroapp;
+package com.heybro;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

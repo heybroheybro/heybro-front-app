@@ -1,4 +1,4 @@
-package com.heybroapp.newarchitecture.modules;
+package com.heybro.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
