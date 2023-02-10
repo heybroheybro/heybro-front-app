@@ -1,7 +1,6 @@
 import { BaseRes, JwtTokenDto } from '../model'
 import { AxiosInstance } from 'axios'
 import client from '../client'
-import AuthStorage from '@heybro/storages/auth/AuthStorage'
 
 class MemberApi {
     private axiosClient: AxiosInstance
@@ -20,29 +19,19 @@ class MemberApi {
         })
     }
 
-    async signIn({ authorization }: { authorization: string }) {
-        const response = await this.axiosClient.request<JwtTokenDto>({
+    signIn({ idToken }: { idToken: string }) {
+        return this.axiosClient.request<BaseRes<JwtTokenDto>>({
             method: 'POST',
-            url: `/auth/signin`,
-            headers: {
-                Authorization: authorization,
-            },
+            url: `/auth/login`,
+            data: { idToken },
         })
-
-        const jwtToken = response?.data
-        const accessToken = jwtToken?.accessToken ?? ''
-        const refreshToken = jwtToken?.refreshToken ?? ''
-        await AuthStorage.set({ accessToken, refreshToken })
-        return jwtToken
     }
 
     refreshToken({ refreshToken }: { refreshToken: string }) {
-        return this.axiosClient.request<JwtTokenDto>({
-            method: 'GET',
-            url: `/auth/token`,
-            headers: {
-                'refresh-token': refreshToken,
-            },
+        return this.axiosClient.request<BaseRes<JwtTokenDto>>({
+            method: 'POST',
+            url: `/auth/refreshToken`,
+            data: { refreshToken },
         })
     }
 }

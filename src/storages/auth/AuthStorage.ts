@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export interface AuthenticationType {
+interface AuthenticationType {
     accessToken: string
     refreshToken: string
 }
@@ -14,11 +14,15 @@ class AuthStorage {
         return { accessToken: accessToken ?? '', refreshToken: refreshToken ?? '' }
     }
     async set({ accessToken, refreshToken }: AuthenticationType) {
-        if (!accessToken || !refreshToken) return
-        await AsyncStorage.multiSet([
-            [ACCESS_TOKEN_KEY, accessToken],
-            [REFRESH_TOKEN_KEY, refreshToken],
-        ])
+        try {
+            await AsyncStorage.multiSet([
+                [ACCESS_TOKEN_KEY, accessToken],
+                [REFRESH_TOKEN_KEY, refreshToken],
+            ])
+            return true
+        } catch {
+            return false
+        }
     }
     async clear() {
         await AsyncStorage.multiRemove([ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY])
