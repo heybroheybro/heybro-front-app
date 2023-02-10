@@ -14,6 +14,7 @@ const COLORS: Record<string, DefaultTheme['colors']> = {
         grayscale500: '#9c9fae',
         grayscale600: '#676975',
         black: '#000000',
+        lightBlack: '#333333',
         purple: '#d661ff',
         red: '#ff3e61',
         green: '#00b674',
@@ -30,6 +31,7 @@ const COLORS: Record<string, DefaultTheme['colors']> = {
         grayscale500: '#9c9fae',
         grayscale600: '#676975',
         black: '#000000',
+        lightBlack: '#333333',
         purple: '#d661ff',
         red: '#ff3e61',
         green: '#00b674',
@@ -81,10 +83,14 @@ export function getGlobalTheme(systemTheme: ColorSchemeName): DefaultTheme {
             },
         },
         fontFamily: {
-            'NOTO-SANS-REGULAR': 'NotoSansKR-Regular',
-            'NOTO-SANS-BOLD': 'NotoSansKR-Bold',
-            'ROBOTO-REGULAR': 'Roboto-Regular',
-            'ROBOTO-BOLD': 'Roboto-Bold',
+            ['NOTO-SANS']: {
+                REGULAR: 'NotoSansKR-Regular',
+                BOLD: 'NotoSansKR-Bold',
+            },
+            ROBOTO: {
+                REGULAR: 'Roboto-Regular',
+                BOLD: 'Roboto-Bold',
+            },
         },
         size: {
             width,

@@ -10,6 +10,7 @@ declare module 'styled-components/native' {
             grayscale500: string
             grayscale600: string
             black: string
+            lightBlack: string
             purple: string
             red: string
             green: string
@@ -55,10 +56,14 @@ declare module 'styled-components/native' {
             }
         }
         fontFamily: {
-            ['NOTO-SANS-REGULAR']: string
-            ['NOTO-SANS-BOLD']: string
-            ['ROBOTO-REGULAR']: string
-            ['ROBOTO-BOLD']: string
+            ['NOTO-SANS']: {
+                REGULAR: string
+                BOLD: string
+            }
+            ROBOTO: {
+                REGULAR: string
+                BOLD: string
+            }
         }
         size: {
             width: number
