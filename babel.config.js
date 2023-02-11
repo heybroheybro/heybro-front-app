@@ -8,6 +8,7 @@ module.exports = {
                 rootPathSuffix: 'src',
             },
         ],
+        'react-native-reanimated/plugin',
     ],
     env: {
         production: {
@@ -19,6 +20,7 @@ module.exports = {
                         rootPathSuffix: 'src',
                     },
                 ],
+                'react-native-reanimated/plugin',
             ],
         },
     },
