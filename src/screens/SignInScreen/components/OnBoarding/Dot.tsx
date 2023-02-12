@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { DefaultTheme, useTheme } from 'styled-components/native'
+import { useGlobalTheme } from '@heybro/hooks/useGlobalTheme'
 import Animated, { interpolate, SharedValue, useAnimatedStyle, useDerivedValue } from 'react-native-reanimated'
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function Dot({ dotArray, xPos, currentIndex }: Props) {
-    const { size } = useTheme() as DefaultTheme
+    const { size } = useGlobalTheme()
     const currentPageIndex = useDerivedValue(() => xPos.value / size.width, [xPos])
 
     const animatedStyle = useAnimatedStyle(() => {
