@@ -5,5 +5,5 @@ import { FooterWrapper } from './styles'
 
 export function FooterMain({ children, style }: ViewProps) {
     const { bottom } = useSafeAreaInsets()
-    return <FooterWrapper style={[{ paddingBottom: bottom ?? 10 }, style]}>{children}</FooterWrapper>
+    return <FooterWrapper style={[{ paddingBottom: bottom || 10 }, style]}>{children}</FooterWrapper>
 }

@@ -35,7 +35,7 @@ export function MainTabBar({ state, navigation }: BottomTabBarProps) {
     }
 
     return (
-        <MainTabBarContainer style={{ paddingBottom: bottom ?? 10 }}>
+        <MainTabBarContainer style={{ paddingBottom: bottom || 10 }}>
             {state.routes.map(({ key, name }, index) => {
                 const isFocused = state.index === index
                 const icon = isFocused ? ICONS[index].active : ICONS[index].inactive
