@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Image, ViewProps } from 'react-native'
 import { useIntl } from 'react-intl'
 import { Dot } from './Dot'
+import { useScroll } from '@heybro/hooks/useScroll'
 import { ContentContainer, OnBoardingLabel, OnBoardingLogo, OnBoardingWrapper, PaginationWrapper } from './styles'
-import { DefaultTheme, useTheme } from 'styled-components/native'
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
 import HelloIcon from '@heybro/assets/images/ic-hello.png'
 import MessageIcon from '@heybro/assets/images/ic-message.png'
@@ -19,8 +19,7 @@ const ON_BOARDING_DATA = [
 export function OnBoarding({ ...props }: ViewProps) {
     const intl = useIntl()
     const scrollX = useSharedValue(0)
-    const { size } = useTheme() as DefaultTheme
-    const scrollRef = useRef<Animated.ScrollView>(null)
+    const scrollRef = useScroll({ value: scrollX, pageLength: ON_BOARDING_DATA.length })
 
     const handleScroll = useAnimatedScrollHandler((e) => {
         scrollX.value = e.contentOffset.x
@@ -44,16 +43,6 @@ export function OnBoarding({ ...props }: ViewProps) {
             <Dot key={index} dotArray={dotArray} xPos={scrollX} currentIndex={index} />
         ))
     }
-
-    useEffect(() => {
-        const pageLength = ON_BOARDING_DATA.length
-        const eventLoop = setInterval(() => {
-            const nextPos = scrollX.value < size.width * (pageLength - 1) ? scrollX.value + size.width : 0
-            scrollRef.current?.scrollTo({ x: nextPos })
-        }, 3000)
-
-        return () => clearInterval(eventLoop)
-    }, [scrollX.value, size])
 
     return (
         <OnBoardingWrapper {...props}>
