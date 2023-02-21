@@ -1,6 +1,10 @@
+import { NavigatorScreenParams } from '@react-navigation/native'
+
 export type RootParamList = {
-    Intro: undefined
-    Main: undefined
+    IntroNav: NavigatorScreenParams<IntroParamList>
+    MainNav: NavigatorScreenParams<MainParamList>
+    HomeNav: NavigatorScreenParams<HomeParamList>
+    MyNav: NavigatorScreenParams<MyParamList>
 }
 
 export type IntroParamList = {
@@ -14,6 +18,12 @@ export type MainParamList = {
     My: undefined
 }
 
+export type HomeParamList = {
+    SearchCity: {
+        type: 'interest-search' | 'living-search'
+    }
+}
+
 export type MyParamList = {
-    Setting: undefined
+    Settings: undefined
 }
