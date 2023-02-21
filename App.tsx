@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components/native'
 import { getGlobalTheme } from '@heybro/utils/theme'
 import { AuthContextProvider, useAuthContext } from '@heybro/contexts/auth'
 import { IntlProvider } from '@heybro/contexts/intl'
+import { QueryProvider } from '@heybro/contexts/query'
 import RootNavigator from '@heybro/navigation/root'
 
 const App = () => {
@@ -14,9 +15,11 @@ const App = () => {
 
     return (
         <ThemeProvider theme={globalTheme}>
-            <IntlProvider>
-                <RootNavigator />
-            </IntlProvider>
+            <QueryProvider>
+                <IntlProvider>
+                    <RootNavigator />
+                </IntlProvider>
+            </QueryProvider>
         </ThemeProvider>
     )
 }
