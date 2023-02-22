@@ -12,7 +12,7 @@ axios.interceptors.response.use(AxiosLogger.responseLogger)
 export function initialAxiosAuthorizationInterceptor(accessToken: string) {
     axios.interceptors.request.use(
         (config) => {
-            if (config.url?.includes('/auth')) return config
+            if (config.url?.includes('/auth') || config.url?.includes('/city')) return config
             return {
                 ...config,
                 headers: {

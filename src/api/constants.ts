@@ -1,0 +1,4 @@
+export const RCT_QUERY_KEYS = {
+    SEARCH_CITY: '@SEARCH-CITY',
+    GET_PROFILE: '@GET-PROFILE',
+}
