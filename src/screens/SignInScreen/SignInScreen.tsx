@@ -1,6 +1,5 @@
 import React from 'react'
 import { Platform } from 'react-native'
-import { ButtonContainer, WrappedScreenView } from './styles'
 import { OnBoarding } from './components/OnBoarding'
 import { LoginButton } from './components/LoginButton'
 import { TakeALookButton } from './components/TakeALookButton'
@@ -8,6 +7,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { IntroParamList, RootParamList } from '@heybro/navigation/types'
 import { CompositeScreenProps } from '@react-navigation/native'
 import { useAuthContext } from '@heybro/contexts/auth'
+import { ButtonContainer, WrappedScreenView } from './styles'
 
 type Props = CompositeScreenProps<
     NativeStackScreenProps<RootParamList>,
@@ -20,16 +20,13 @@ export function SignInScreen({ navigation }: Props) {
     const handleLogin = async (type: 'google' | 'apple') => {
         if (type === 'google') {
             const isSucceeded = await signInWithGoogle()
-            if (isSucceeded) {
-                navigation.navigate('Terms')
-            } else {
-                console.error('failed to sign in with google')
-            }
+            if (isSucceeded) navigation.navigate('Terms')
+            else console.error('failed to sign in with google')
         }
     }
 
     const handleTakeALook = () => {
-        navigation.navigate('Main')
+        navigation.navigate('MainNav', { screen: 'Home' })
     }
 
     return (
