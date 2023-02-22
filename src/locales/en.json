@@ -5,6 +5,8 @@
     "@COMMON-004": "다시시도",
     "@COMMON-005": "나의도시",
     "@COMMON-006": "관심도시",
+    "@COMMON-007": "계정",
+    "@COMMON-008": "로그아웃",
     "@SIGNIN-001": "둘러보기",
     "@SIGNIN-002": "Apple login",
     "@SIGNIN-003": "Google login",
@@ -27,6 +29,11 @@
     "@SEARCHCITY-001": "관심있는 도시를\n검색해 주세요",
     "@SEARCHCITY-002": "내가 살고 있는 도시를\n검색해 주세요",
     "@SEARCHCITY-003": "도시명 입력",
-    "@SETTING-001": "계정",
-    "@SETTING-002": "설정"
+    "@SETTING-001": "설정",
+    "@SETTING-002": "알림",
+    "@SETTING-003": "이용약관",
+    "@SETTING-004": "개인정보 취급방침",
+    "@SETTING-005": "버전정보",
+    "@SETTING-006": "앱공유",
+    "@SETTING-007": "링크복사"
 }
