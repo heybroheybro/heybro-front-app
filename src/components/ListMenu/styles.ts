@@ -2,7 +2,7 @@ import { Text } from '@heybro/components/Text'
 import styled, { css, DefaultTheme } from 'styled-components/native'
 
 export const ListMenuContainer = styled.TouchableOpacity`
-    padding: 16px 24px;
+    padding: 16px 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
