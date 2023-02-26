@@ -2170,11 +2170,6 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-axios-inherit@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/axios-inherit/-/axios-inherit-1.0.1.tgz#4632720c10369476ced52ba52383cabbef6d5ec3"
-  integrity sha512-HUZ4gyRrsYtw0HGWSWQpsWwzUG8Gl1lPYDCc+H4InSW70XzEKnI1xsCWxJ0Lrvnhf8Ab4PHx0B1KhOh0s8OQWg==
-
 axios-logger@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/axios-logger/-/axios-logger-2.6.2.tgz#dacdce78f7dbd175712be555a57e67666033d09e"
