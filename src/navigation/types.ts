@@ -20,10 +20,11 @@ export type MainParamList = {
 
 export type HomeParamList = {
     SearchCity: {
-        type: 'interest-search' | 'living-search'
+        type: 'favorite-city' | 'my-city'
     }
 }
 
 export type MyParamList = {
     Settings: undefined
+    Account: undefined
 }
