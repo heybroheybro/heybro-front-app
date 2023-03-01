@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 type ReturnType = [string, (value: string) => void]
 
-export function useInput<T>(initialValue = '', maxLength = 200): ReturnType {
+export function useInput(initialValue = '', maxLength = 200): ReturnType {
     const [value, setValue] = useState<string>(initialValue)
 
     const handleChangeText = (text: string) => {
