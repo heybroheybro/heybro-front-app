@@ -1,5 +1,6 @@
 import { BaseRes, JwtTokenDto } from '../model'
 import { AxiosInstance } from 'axios'
+import { SignInResponse } from './types'
 import client from '../client'
 
 class MemberApi {
@@ -9,18 +10,8 @@ class MemberApi {
         this.axiosClient = axiosClient
     }
 
-    getEmail({ accessToken }: { accessToken: string }) {
-        return this.axiosClient.request<BaseRes<any>>({
-            method: 'GET',
-            url: `/auth/email`,
-            headers: {
-                accessToken,
-            },
-        })
-    }
-
     signIn({ idToken }: { idToken: string }) {
-        return this.axiosClient.request<BaseRes<JwtTokenDto>>({
+        return this.axiosClient.request<BaseRes<SignInResponse>>({
             method: 'POST',
             url: `/auth/login`,
             data: { idToken },
