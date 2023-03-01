@@ -13,3 +13,9 @@ export const MainTabBarContainer = styled.View`
         `
     }}
 `
+
+export const AvatarImage = styled.Image`
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+`

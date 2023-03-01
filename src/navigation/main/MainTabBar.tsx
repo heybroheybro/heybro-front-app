@@ -2,7 +2,8 @@ import React from 'react'
 import { Image, TouchableOpacity } from 'react-native'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { MainTabBarContainer } from './styles'
+import { AvatarImage, MainTabBarContainer } from './styles'
+import { useGetProfile } from '@heybro/api/my'
 
 const ICONS = [
     {
@@ -21,6 +22,8 @@ const ICONS = [
 
 export function MainTabBar({ state, navigation }: BottomTabBarProps) {
     const { bottom } = useSafeAreaInsets()
+    const { data: profileResult } = useGetProfile()
+    const profileImage = profileResult?.data.data?.picture
 
     const handlePress = (target: string, name: string, isFocused: boolean) => {
         const event = navigation.emit({
@@ -42,7 +45,11 @@ export function MainTabBar({ state, navigation }: BottomTabBarProps) {
 
                 return (
                     <TouchableOpacity key={key} activeOpacity={0.8} onPress={() => handlePress(key, name, isFocused)}>
-                        <Image source={icon} />
+                        {index === 2 && profileImage ? (
+                            <AvatarImage source={{ uri: profileImage }} />
+                        ) : (
+                            <Image source={icon} />
+                        )}
                     </TouchableOpacity>
                 )
             })}
