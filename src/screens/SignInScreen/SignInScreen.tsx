@@ -26,7 +26,7 @@ export function SignInScreen({ navigation }: Props) {
     }
 
     const handleTakeALook = () => {
-        navigation.navigate('MainNav', { screen: 'Home' })
+        navigation.replace('MainNav', { screen: 'Home' })
     }
 
     return (

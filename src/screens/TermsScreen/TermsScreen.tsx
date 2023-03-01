@@ -9,18 +9,29 @@ import { ScreenView } from '@heybro/components/ScreenView'
 import { Terms } from './components/Terms'
 import { TermsProvider, useTermsContext } from '@heybro/contexts/terms'
 import { WrappedFooter, WrappedScreenView } from './styles'
+import { useGetAgreement, useUpdateAgreements } from '@heybro/api/agreement'
+import { useAuthContext } from '@heybro/contexts/auth'
 
 type Props = CompositeScreenProps<
     NativeStackScreenProps<RootParamList>,
     NativeStackScreenProps<IntroParamList, 'Terms'>
 >
 
-function TermsScreen({ navigation }: Props) {
+function TermsScreen() {
     const intl = useIntl()
-    const { requiredAllAgreed } = useTermsContext()
+    const { updateAuthenticateState } = useAuthContext()
+    const { requiredAllAgreed, terms } = useTermsContext()
+    const { mutateAsync: updateAgreements } = useUpdateAgreements()
 
-    const handleSubmit = () => {
-        navigation.navigate('MainNav', { screen: 'Home' })
+    const handleSubmit = async () => {
+        await updateAgreements({
+            age: terms[0].checked,
+            term: terms[1].checked,
+            privacy: terms[2].checked,
+            location: terms[3].checked,
+            event: terms[4].checked,
+        })
+        updateAuthenticateState()
     }
 
     return (
@@ -39,9 +50,13 @@ function TermsScreen({ navigation }: Props) {
 }
 
 export default function WrappedTermsScreen(props: Props) {
+    const { data: agreements } = useGetAgreement()
     return (
-        <TermsProvider>
-            <TermsScreen {...props} />
+        <TermsProvider
+            agreements={
+                agreements?.data.data || { age: false, term: false, privacy: false, location: false, event: false }
+            }>
+            <TermsScreen />
         </TermsProvider>
     )
 }

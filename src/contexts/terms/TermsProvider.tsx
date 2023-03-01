@@ -1,10 +1,15 @@
-import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react'
+import { Agreements } from '@heybro/api/agreement/types'
+import React, { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { TermItem, TermsContextState } from './types'
 
 const TermsContext = createContext<TermsContextState>({ allAgreed: false, requiredAllAgreed: false, terms: [] })
 
-export const TermsProvider: React.FC<PropsWithChildren> = ({ children }) => {
+interface Props extends PropsWithChildren {
+    agreements: Agreements
+}
+
+export const TermsProvider: React.FC<Props> = ({ children, agreements }) => {
     const intl = useIntl()
     const [terms, setTerms] = useState<TermItem[]>([
         {
@@ -55,6 +60,18 @@ export const TermsProvider: React.FC<PropsWithChildren> = ({ children }) => {
             },
         }
     }, [terms])
+
+    useEffect(() => {
+        setTerms((prev) => {
+            const next = [...prev]
+            next[0].checked = agreements.age
+            next[1].checked = agreements.term
+            next[2].checked = agreements.privacy
+            next[3].checked = agreements.location
+            next[4].checked = agreements.event
+            return next
+        })
+    }, [agreements])
 
     return (
         <TermsContext.Provider
