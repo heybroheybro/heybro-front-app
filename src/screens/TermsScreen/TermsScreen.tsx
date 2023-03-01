@@ -2,20 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 import { useIntl } from 'react-intl'
 import { Footer } from '@heybro/components/Footer'
-import { CompositeScreenProps } from '@react-navigation/native'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { IntroParamList, RootParamList } from '@heybro/navigation/types'
 import { ScreenView } from '@heybro/components/ScreenView'
 import { Terms } from './components/Terms'
 import { TermsProvider, useTermsContext } from '@heybro/contexts/terms'
 import { WrappedFooter, WrappedScreenView } from './styles'
 import { useGetAgreement, useUpdateAgreements } from '@heybro/api/agreement'
 import { useAuthContext } from '@heybro/contexts/auth'
-
-type Props = CompositeScreenProps<
-    NativeStackScreenProps<RootParamList>,
-    NativeStackScreenProps<IntroParamList, 'Terms'>
->
 
 function TermsScreen() {
     const intl = useIntl()
@@ -49,7 +41,7 @@ function TermsScreen() {
     )
 }
 
-export default function WrappedTermsScreen(props: Props) {
+export default function WrappedTermsScreen() {
     const { data: agreements } = useGetAgreement()
     return (
         <TermsProvider
