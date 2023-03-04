@@ -2,7 +2,7 @@ import styled, { css, DefaultTheme } from 'styled-components/native'
 import { ButtonType } from './ButtonMain'
 import { Text } from '../Text'
 
-export const ButtonWrapper = styled.TouchableOpacity<{ type: ButtonType }>`
+export const ButtonWrapper = styled.TouchableOpacity<{ type: ButtonType; colorKey: keyof DefaultTheme['colors'] }>`
     height: 50px;
     flex-direction: row;
     justify-content: center;
@@ -10,19 +10,17 @@ export const ButtonWrapper = styled.TouchableOpacity<{ type: ButtonType }>`
     padding: 0 8px;
 
     ${(props) => {
-        const { type, theme } = props
+        const { type, theme, colorKey } = props
         const { colors } = theme as DefaultTheme
         if (type === 'round') {
             return css`
                 border-radius: 999px;
-                background-color: ${colors.white};
+                background-color: ${colors[colorKey]};
             `
         } else if (type === 'transparent') {
             return css``
         } else {
-            return css`
-                /* border-radius: 999px; */
-            `
+            return css``
         }
     }}
 `
