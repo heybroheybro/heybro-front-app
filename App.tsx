@@ -5,6 +5,7 @@ import { getGlobalTheme } from '@heybro/utils/theme'
 import { AuthContextProvider, useAuthContext } from '@heybro/contexts/auth'
 import { IntlProvider } from '@heybro/contexts/intl'
 import { QueryProvider } from '@heybro/contexts/query'
+import { NetworkProvider } from '@heybro/contexts'
 import RootNavigator from '@heybro/navigation/root'
 
 const App = () => {
@@ -25,9 +26,11 @@ const App = () => {
 }
 
 const AppWrapper = () => (
-    <AuthContextProvider>
-        <App />
-    </AuthContextProvider>
+    <NetworkProvider>
+        <AuthContextProvider>
+            <App />
+        </AuthContextProvider>
+    </NetworkProvider>
 )
 
 export default AppWrapper
