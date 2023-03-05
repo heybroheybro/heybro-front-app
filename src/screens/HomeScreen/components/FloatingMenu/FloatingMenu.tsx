@@ -16,7 +16,7 @@ export function FloatingMenu() {
     const [isOpened, setIsOpened] = useState(false)
     const actions: IActionProps[] = [
         {
-            text: intl.formatMessage({ id: '@HOME-007' }),
+            text: intl.formatMessage({ id: '@HOME-006' }),
             name: 'QUESTION',
             icon: QuestionIcon,
             textBackground: 'transparent',
@@ -25,7 +25,7 @@ export function FloatingMenu() {
             tintColor: '',
         },
         {
-            text: intl.formatMessage({ id: '@HOME-008' }),
+            text: intl.formatMessage({ id: '@HOME-007' }),
             name: 'TIP',
             icon: InformingIcon,
             textBackground: 'transparent',
