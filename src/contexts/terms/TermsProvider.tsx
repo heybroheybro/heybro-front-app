@@ -1,9 +1,9 @@
-import { Agreements } from '@heybro/api/agreement/types'
 import React, { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
+import { Agreements } from '@heybro/api/agreement/types'
 import { TermItem, TermsContextState } from './types'
 
-const TermsContext = createContext<TermsContextState>({ allAgreed: false, requiredAllAgreed: false, terms: [] })
+const TermsContext = createContext<TermsContextState | undefined>(undefined)
 
 interface Props extends PropsWithChildren {
     agreements: Agreements
@@ -87,4 +87,8 @@ export const TermsProvider: React.FC<Props> = ({ children, agreements }) => {
     )
 }
 
-export const useTermsContext = () => useContext(TermsContext)
+export const useTermsContext = () => {
+    const context = useContext(TermsContext)
+    if (context === undefined) throw new Error("it must be used within it's Provider")
+    return context
+}
